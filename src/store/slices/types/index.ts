@@ -1,6 +1,11 @@
+export enum Slices {
+  Weather = 'weather',
+}
+
 export type State = {
-  current: CurrentProps;
-  forecast: ForecastProps;
+  weather: WeatherProps;
+  search: string;
+  loading: boolean;
 };
 
 export type ForecastItem = {
@@ -11,8 +16,6 @@ export type ForecastItem = {
     temp_min: number;
     temp_max: number;
     pressure: number;
-    sea_level: number;
-    grnd_level: number;
     humidity: number;
     temp_kf: number;
   };
@@ -30,14 +33,8 @@ export type ForecastItem = {
   wind: {
     speed: number;
     deg: number;
-    gust: number;
   };
   visibility: number;
-  pop: number;
-  sys: {
-    pod: string;
-  };
-  dt_txt: string;
 };
 
 export type ForecastProps = {
@@ -69,21 +66,21 @@ export type CurrentProps = {
   wind: {
     speed: number;
     deg: number;
-    gust: number;
   };
   clouds: {
     all: number;
   };
   dt: number;
   sys: {
-    type: 2;
     id: number;
     country: string;
     sunrise: number;
     sunset: number;
   };
-  timezone: number;
-  id: number;
   name: string;
-  cod: number;
+};
+
+export type WeatherProps = {
+  current: CurrentProps | null;
+  forecast: ForecastProps | null;
 };
