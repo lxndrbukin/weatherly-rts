@@ -35,6 +35,7 @@ export type ForecastItem = {
     deg: number;
   };
   visibility: number;
+  dt_txt: string;
 };
 
 export type ForecastProps = {

@@ -45,3 +45,4 @@ const weatherSlice = createSlice({
 });
 
 export default weatherSlice.reducer;
+export const { setSearch } = weatherSlice.actions;
