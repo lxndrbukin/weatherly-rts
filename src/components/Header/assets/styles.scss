@@ -1,0 +1,56 @@
+@import '../../assets/variables.scss';
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 70%;
+  gap: 30px;
+  align-items: center;
+  width: 100%;
+  max-width: $max-width;
+  color: $grey-blue;
+  padding: 0 $spacing-md;
+  box-sizing: border-box;
+
+  .header-left {
+    display: flex;
+
+    .header-logo {
+      font-size: 3rem;
+      font-weight: bold;
+      letter-spacing: -0.05rem;
+    }
+
+    .header-github {
+      font-size: 2.3rem;
+      height: fit-content;
+      display: inline-block;
+    }
+  }
+
+  .header-right {
+    .header-search-form {
+      display: flex;
+      width: 100%;
+      position: relative;
+      box-sizing: border-box;
+
+      input {
+        width: 100%;
+      }
+
+      .btn {
+        position: absolute;
+        background-color: transparent;
+        border: 0;
+      }
+
+      .crosshair {
+        left: 0;
+      }
+
+      .glass {
+        right: 0;
+      }
+    }
+  }
+}
