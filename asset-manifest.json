@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/weatherly-rts/static/css/main.fa487b55.css",
+    "main.js": "/weatherly-rts/static/js/main.700c3221.js",
+    "index.html": "/weatherly-rts/index.html",
+    "main.fa487b55.css.map": "/weatherly-rts/static/css/main.fa487b55.css.map",
+    "main.700c3221.js.map": "/weatherly-rts/static/js/main.700c3221.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fa487b55.css",
+    "static/js/main.700c3221.js"
+  ]
+}
