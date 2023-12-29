@@ -6,6 +6,7 @@ import { RootState, WeatherProps } from '../store';
 import { Header } from './Header/Header';
 import { CurrentWeather } from './CurrentWeather/CurrentWeather';
 import { Forecast } from './Forecast/Forecast';
+import { Footer } from './Footer/Footer';
 
 class _App extends Component<AppProps> {
   constructor(props: AppProps) {
@@ -42,6 +43,7 @@ class _App extends Component<AppProps> {
         <Header />
         {!this.props.loading && this.renderCurrent()}
         {!this.props.loading && this.renderForecast()}
+        <Footer />
       </div>
     );
   }

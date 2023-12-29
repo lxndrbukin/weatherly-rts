@@ -1,0 +1,22 @@
+@import '../../assets/variables.scss';
+
+.footer {
+  color: $grey-blue;
+  display: grid;
+  grid-template-rows: 1fr fit-content;
+  padding: $spacing-xl 0 0 0;
+  box-sizing: border-box;
+
+  span {
+    a {
+      color: $black;
+    }
+  }
+
+  .github {
+    width: fit-content;
+    justify-self: center;
+    font-size: 2rem;
+    color: $grey-blue;
+  }
+}

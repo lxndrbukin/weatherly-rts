@@ -50,3 +50,91 @@
     }
   }
 }
+
+/* MEDIA */
+@media only screen and (max-width: 710px) {
+  .header {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
+  }
+
+  .forecast-days {
+    grid-template-columns: repeat(3, 1fr) !important;
+
+    .day {
+      &:nth-child(3) {
+        border-right: none;
+      }
+
+      &:nth-child(5) {
+        border-right: 1px solid $light-grey;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .info-left {
+    .city-temp {
+      font-size: 2rem !important;
+    }
+
+    .city-temp img {
+      width: 70px;
+      height: 70px;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .current-weather-info {
+    grid-template-columns: 1fr !important;
+
+    .info-right {
+      align-items: center !important;
+
+      .temps {
+        width: 150px;
+        justify-content: space-between;
+      }
+
+      .hwp {
+        width: 200px;
+      }
+    }
+  }
+
+  .forecast-days {
+    grid-template-columns: repeat(2, 1fr) !important;
+
+    .day {
+      &:nth-child(3) {
+        border-right: 1px solid $light-grey;
+      }
+
+      &:nth-child(5) {
+        border-right: 1px solid $light-grey;
+      }
+
+      &:nth-child(even) {
+        border: none;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 370px) {
+  .forecast-days {
+    grid-template-columns: 1fr !important;
+
+    .day {
+      border-right: none !important;
+      border-bottom: 1px solid $light-grey !important;
+
+      &:nth-child(5) {
+        border: none !important;
+      }
+    }
+  }
+}
