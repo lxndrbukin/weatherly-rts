@@ -15,6 +15,10 @@ class _App extends Component<AppProps> {
     this.renderForecast = this.renderForecast.bind(this);
   }
 
+  componentDidMount(): void {
+    window.document.title = 'Weatherly';
+  }
+
   renderCurrent(): JSX.Element | null {
     const { current } = this.props.weather;
     if (current) {
