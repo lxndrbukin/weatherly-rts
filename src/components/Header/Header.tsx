@@ -1,54 +1,79 @@
 import './assets/styles.scss';
-import { ChangeEvent, Component } from 'react';
-import { HeaderProps, HeaderState } from './types';
+import { Component, FormEvent, MouseEvent, ChangeEvent } from 'react';
+import { HeaderProps } from './types';
 import { connect } from 'react-redux';
-import { setSearch, getWeatherByCoords } from '../../store';
+import {
+  setSearch,
+  getWeatherByCoords,
+  getWeather,
+  RootState,
+} from '../../store';
 
-class _Header extends Component<HeaderProps, HeaderState> {
+class _Header extends Component<HeaderProps> {
   constructor(props: HeaderProps) {
     super(props);
-    this.handleOnChange.bind(this);
-    this.handleOnClick.bind(this);
-    this.state = {
-      search: '',
-    };
+    this.handleOnChange = this.handleOnChange.bind(this);
+    this.handleOnClick = this.handleOnClick.bind(this);
+    this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
 
-  handleOnClick() {
+  handleOnSubmit(
+    e: FormEvent<HTMLFormElement> | MouseEvent<HTMLButtonElement>
+  ): void {
+    e.preventDefault();
+    this.props.getWeather(this.props.search);
+  }
+
+  handleOnClick(e: MouseEvent<HTMLButtonElement>): void {
+    e.preventDefault();
     const successCallback = async (position: {
       coords: { latitude: number; longitude: number };
-    }) => {
+    }): Promise<void> => {
       const { latitude, longitude } = await position.coords;
-      getWeatherByCoords({ lat: latitude, lon: longitude });
+      this.props.getWeatherByCoords({ lat: latitude, lon: longitude });
     };
 
     navigator.geolocation.getCurrentPosition(successCallback);
   }
 
-  handleOnChange(e: ChangeEvent<HTMLInputElement>) {
+  handleOnChange(e: ChangeEvent<HTMLInputElement>): void {
     this.props.setSearch(e.target.value);
   }
 
   render(): JSX.Element {
     return (
       <header className="header">
-        <div className="header-logo">Weatherly</div>
-        <form className="header-search-form">
-          <button className="btn crosshair">
+        <div className="header-left">
+          <div className="header-logo">Weatherly</div>
+        </div>
+        <div className="header-right">
+          <button onClick={this.handleOnClick} className="btn crosshair">
             <i className="fa-solid fa-location-crosshairs"></i>
           </button>
-          <input
-            onChange={this.props.handleOnChange}
-            type="search"
-            placeholder="Enter city/town name"
-          />
-          <button className="btn glass">
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
+          <form className="header-search-form" onSubmit={this.handleOnSubmit}>
+            <input
+              onChange={this.handleOnChange}
+              type="search"
+              placeholder="Enter city/town name"
+            />
+            <button onClick={this.handleOnSubmit} className="btn glass">
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </div>
       </header>
     );
   }
 }
 
-export const Header = connect(null, { setSearch, getWeatherByCoords })(_Header);
+const mapStateToProps = ({ weatherData }: RootState): { search: string } => {
+  return {
+    search: weatherData.search,
+  };
+};
+
+export const Header = connect(mapStateToProps, {
+  setSearch,
+  getWeatherByCoords,
+  getWeather,
+})(_Header);

@@ -17,4 +17,10 @@ export type CurrentWeatherProps = {
       speed: number;
     };
   };
+  sys: {
+    id: number;
+    country: string;
+    sunrise: number;
+    sunset: number;
+  };
 };

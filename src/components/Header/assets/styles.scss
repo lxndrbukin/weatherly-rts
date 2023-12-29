@@ -2,13 +2,12 @@
 
 .header {
   display: grid;
-  grid-template-columns: 1fr 70%;
+  grid-template-columns: 30% 1fr;
   gap: 30px;
   align-items: center;
   width: 100%;
   max-width: $max-width;
   color: $grey-blue;
-  padding: 0 $spacing-md;
   box-sizing: border-box;
 
   .header-left {
@@ -19,38 +18,55 @@
       font-weight: bold;
       letter-spacing: -0.05rem;
     }
-
-    .header-github {
-      font-size: 2.3rem;
-      height: fit-content;
-      display: inline-block;
-    }
   }
 
   .header-right {
+    position: relative;
+    width: 100%;
+    display: grid;
+    align-items: center;
+
     .header-search-form {
       display: flex;
       width: 100%;
       position: relative;
       box-sizing: border-box;
+      height: 40px;
 
       input {
+        height: 40px;
         width: 100%;
-      }
+        border-radius: 30px;
+        border: none;
+        padding: 0 calc($spacing-xl * 1.5);
+        box-sizing: border-box;
+        box-shadow: $shadow;
+        font-size: 1.3rem;
+        color: $grey-blue;
 
-      .btn {
-        position: absolute;
-        background-color: transparent;
-        border: 0;
+        &:focus {
+          outline: none;
+        }
       }
+    }
 
-      .crosshair {
-        left: 0;
-      }
+    .btn {
+      background-color: transparent;
+      border: none;
+      color: $grey-blue;
+      cursor: pointer;
+      position: absolute;
+      font-size: 1.3rem;
+      top: 7px;
+    }
 
-      .glass {
-        right: 0;
-      }
+    .crosshair {
+      left: calc($spacing-lg * 0.6);
+      z-index: 1;
+    }
+
+    .glass {
+      right: calc($spacing-lg * 0.6);
     }
   }
 }

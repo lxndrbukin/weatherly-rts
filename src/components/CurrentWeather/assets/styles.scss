@@ -1,0 +1,103 @@
+@import '../../assets/variables.scss';
+
+.current-weather {
+  width: 100%;
+  max-width: $max-width;
+  background-color: $white;
+  border-radius: 20px;
+  margin: $spacing-lg 0;
+  padding: $spacing-lg;
+  box-sizing: border-box;
+  box-shadow: $shadow;
+  animation-name: opacity;
+  animation-duration: 1.5s;
+  display: flex;
+  flex-direction: column;
+
+  .current-weather-header {
+    padding: $spacing-sm;
+    font-size: 1.5rem;
+    margin: $spacing-sm;
+    color: $grey;
+  }
+
+  .current-weather-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    .info-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .city-name {
+        font-size: 1.4rem;
+        color: $grey-blue;
+      }
+
+      .city-temp {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+
+        img {
+          width: 90px;
+          height: 90px;
+        }
+
+        .city-temp-value {
+          margin: 0;
+          color: $grey-blue;
+        }
+      }
+
+      .description {
+        text-transform: capitalize;
+        font-size: 1.35rem;
+        color: $grey-blue;
+      }
+    }
+
+    .info-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      color: $grey-blue;
+
+      i {
+        color: $light-grey;
+        align-self: center;
+      }
+
+      .feel {
+        color: $grey-blue;
+        font-size: 1.2rem;
+      }
+
+      .value {
+        font-weight: bold;
+      }
+
+      .hwp {
+        width: 220px;
+        display: grid;
+        grid-template-columns: 35px 1fr 1fr;
+        margin: $spacing-sm 0;
+      }
+
+      .temps {
+        display: flex;
+        margin-bottom: $spacing-lg;
+
+        .temp {
+          display: grid;
+          width: 60px;
+          grid-template-columns: 20px 1fr;
+        }
+      }
+    }
+  }
+}

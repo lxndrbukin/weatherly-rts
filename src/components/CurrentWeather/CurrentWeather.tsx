@@ -1,3 +1,4 @@
+import './assets/styles.scss';
 import { Component } from 'react';
 import { CurrentWeatherProps } from './types';
 

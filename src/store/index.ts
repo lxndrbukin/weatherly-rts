@@ -10,6 +10,8 @@ export const store = configureStore({
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
+export * from './slices/types';
+export * from './thunks/types';
 export * from './slices/weatherSlice';
 export * from './thunks/getWeather';
 export * from './thunks/getWeatherByCoords';

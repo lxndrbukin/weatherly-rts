@@ -1,3 +1,5 @@
+import './assets/styles.scss';
+
 import { Component } from 'react';
 import { ForecastProps } from './types';
 import { Day } from '../Day/Day';
@@ -7,7 +9,7 @@ export class Forecast extends Component<ForecastProps> {
 
   constructor(props: ForecastProps) {
     super(props);
-    this.renderDays.bind(this);
+    this.renderDays = this.renderDays.bind(this);
   }
 
   renderDays(): Array<JSX.Element | null> {
@@ -32,7 +34,7 @@ export class Forecast extends Component<ForecastProps> {
     return (
       <section className="forecast">
         <h4 className="forecast-header">5-day forecast</h4>
-        <div className="forecast-days">{}</div>
+        <div className="forecast-days">{this.renderDays()}</div>
       </section>
     );
   }
